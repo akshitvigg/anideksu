@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import Image from "next/image";
+import { Star, Subtitles, Video } from "lucide-react";
 import { useRef, useState } from "react";
 import { Cards } from "./components/cards";
 
@@ -9,13 +9,11 @@ export default function Home() {
   const [name, setName] = useState<string>("");
   const [aniData, setAnidata] = useState<any[]>([]);
   const inputRef = useRef<string | any>("");
-
   const getAnimedata = async () => {
     const response = await axios.get(
       `https://api.jikan.moe/v4/anime?q=${inputRef.current.value}`
     );
     setAnidata(response.data.data);
-    console.log();
   };
 
   return (
@@ -42,7 +40,28 @@ export default function Home() {
               alt="animephoto"
               width={200}
             />
-            <p className=" bg-zinc-700 -translate-y-6">{anime.score}</p>
+            <div className=" flex">
+              <p className="ml-2 pl-1 rounded-md backdrop-blur-xl text-black  bg-cyan-400 font-bold text-sm items-center w-14 flex -translate-y-6">
+                <Star
+                  className="pr-1"
+                  fill="yellow"
+                  color="yellow "
+                  size={18}
+                />
+                {anime.score}
+              </p>
+              <p className="ml-2 pl-2 rounded-md backdrop-blur-xl text-black  bg-green-400 font-bold text-sm items-center w-12 flex -translate-y-6">
+                <Video className="pr-1" color="black" size={18} />
+                {anime.episodes}
+              </p>
+              <p className="ml-2 pl-1 pr-1 rounded-md  bg-red-400 text-black    backdrop-blur-lg font-bold text-sm items-center w-16 flex -translate-y-6">
+                {anime.airing ? (
+                  <p className="pl-2">airing</p>
+                ) : (
+                  <p className="  w-16">finished</p>
+                )}
+              </p>
+            </div>
             <p className=" pt-1 w-52">{anime.title}</p>
           </div>
         ))}
