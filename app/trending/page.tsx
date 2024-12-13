@@ -51,18 +51,6 @@ export default function Trending() {
           ref={scrollContainerRef}
           className=" flex overflow-x-auto scrollbar-hide space-x-4 px-10 py-10"
         >
-          <button
-            className=" bg-yellow-300 rounded-full"
-            onClick={() => scroll("left")}
-          >
-            <ChevronLeft size={32} color="black" />
-          </button>
-          <button
-            className=" bg-yellow-300 rounded-full"
-            onClick={() => scroll("right")}
-          >
-            <ChevronRight color="black" size={32} />
-          </button>
           {aniData.map((anime) => (
             <div className=" pt-3 col-span-1" key={anime.mal_id}>
               <div className=" relative overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
