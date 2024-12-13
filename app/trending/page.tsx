@@ -10,7 +10,7 @@ import Image from "next/image";
 export default function Trending() {
   const [aniData, setAnidata] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
-  const [chance, setChance] = useState<number>(0);
+  const [chance, setChance] = useState<number>(0.5);
 
   useEffect(() => {
     setChance(Math.random());
