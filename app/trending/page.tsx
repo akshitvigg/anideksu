@@ -17,7 +17,7 @@ export default function Trending() {
     const getTrending = async () => {
       setLoading(true);
       const response = await axios.get(
-        `https://api.jikan.moe/v4/anime?trending`
+        `https://api.jikan.moe/v4/anime?trending&limit=10`
       );
       setAnidata(response.data.data);
       setLoading(false);
@@ -30,7 +30,7 @@ export default function Trending() {
   return (
     <div>
       {!loading ? (
-        <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
+        <div className=" flex  overflow-x-auto scrollbar-hide space-x-4 px-10 py-10">
           {aniData.map((anime) => (
             <div className=" pt-3 col-span-1" key={anime.mal_id}>
               <div className=" relative overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
