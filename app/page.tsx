@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { Star, Video } from "lucide-react";
+import { Star, Video, Search } from "lucide-react";
 import { useRef, useState } from "react";
 import { Cards } from "./components/cards";
 
@@ -19,16 +19,26 @@ export default function Home() {
 
   return (
     <div className="">
-      <div className="  flex items-center justify-center">
-        <input
-          ref={inputRef}
-          className=" text-black p-3 w-96 mt-32"
-          type="text"
-          placeholder="anime name"
-        />
-        <button onClick={getAnimedata} className=" mt-32 p-3 bg-yellow-600">
-          search
-        </button>
+      <div className=" pl-14 pt-3   flex justify-between pr-14  items-center ">
+        <p className=" font-bold text-4xl">Anitaro</p>
+
+        <p> home </p>
+        <button>trending</button>
+        <button>popular</button>
+        <div className=" flex items-center">
+          <input
+            ref={inputRef}
+            className=" rounded-3xl mr-2 text-black p-3 w-96 "
+            type="text"
+            placeholder="anime name"
+          />
+          <button
+            onClick={getAnimedata}
+            className=" rounded-full  p-3 bg-yellow-300"
+          >
+            <Search color="#161e27" />
+          </button>
+        </div>
       </div>
       <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
         {aniData.map((anime) => (
