@@ -1,7 +1,7 @@
 "use client";
 
 import axios from "axios";
-import { Star, Subtitles, Video } from "lucide-react";
+import { Star, Video } from "lucide-react";
 import { useRef, useState } from "react";
 import { Cards } from "./components/cards";
 
@@ -9,6 +9,7 @@ export default function Home() {
   const [name, setName] = useState<string>("");
   const [aniData, setAnidata] = useState<any[]>([]);
   const inputRef = useRef<string | any>("");
+  const [imageSize, setImagesize] = useState(false);
   const getAnimedata = async () => {
     const response = await axios.get(
       `https://api.jikan.moe/v4/anime?q=${inputRef.current.value}`
@@ -29,17 +30,17 @@ export default function Home() {
           search
         </button>
       </div>
-      <div className=" ml-10 pt-10 grid grid-cols-5">
+      <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
         {aniData.map((anime) => (
-          <div
-            className=" transition-all duration-200 hover:scale-95 pt-6 col-span-1"
-            key={anime.mal_id}
-          >
-            <img
-              src={anime.images.jpg.image_url}
-              alt="animephoto"
-              width={200}
-            />
+          <div className=" pt-3 col-span-1" key={anime.mal_id}>
+            <div className=" relative overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
+              <img
+                className=" w-full h-full object-cover rounded-md transition-transform duration-500 transform hover:scale-110   "
+                src={anime.images.jpg.image_url}
+                alt="animephoto"
+                width={200}
+              />
+            </div>
             <div className=" flex">
               <p className="ml-2 pl-1 rounded-md backdrop-blur-xl text-black  bg-cyan-400 font-bold text-sm items-center w-14 flex -translate-y-6">
                 <Star
@@ -62,7 +63,7 @@ export default function Home() {
                 )}
               </p>
             </div>
-            <p className=" pt-1 w-52">{anime.title}</p>
+            <p className=" font-bold -translate-y-4 w-52">{anime.title}</p>
           </div>
         ))}
       </div>
