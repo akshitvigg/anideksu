@@ -1,8 +1,8 @@
 "use client";
 
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { Star, Video } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import { ChevronLeft, ChevronRight, Star, Video } from "lucide-react";
 import pika from "../assets/pikachu-running.gif";
 import naruto from "../assets/2r6C.gif";
 import Image from "next/image";
@@ -11,7 +11,7 @@ export default function Trending() {
   const [aniData, setAnidata] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [chance, setChance] = useState<number>(0.5);
-
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
     setChance(Math.random());
     const getTrending = async () => {
@@ -27,10 +27,42 @@ export default function Trending() {
     console.log(chance);
   }, []);
 
+  const scroll = (direction: "left" | "right") => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = 300;
+      if (direction === "left") {
+        scrollContainerRef.current.scrollBy({
+          left: -scrollAmount,
+          behavior: "smooth",
+        });
+      } else {
+        scrollContainerRef.current.scrollBy({
+          left: scrollAmount,
+          behavior: "smooth",
+        });
+      }
+    }
+  };
+
   return (
     <div>
       {!loading ? (
-        <div className=" flex  overflow-x-auto scrollbar-hide space-x-4 px-10 py-10">
+        <div
+          ref={scrollContainerRef}
+          className=" flex overflow-x-auto scrollbar-hide space-x-4 px-10 py-10"
+        >
+          <button
+            className=" bg-yellow-300 rounded-full"
+            onClick={() => scroll("left")}
+          >
+            <ChevronLeft size={32} color="black" />
+          </button>
+          <button
+            className=" bg-yellow-300 rounded-full"
+            onClick={() => scroll("right")}
+          >
+            <ChevronRight color="black" size={32} />
+          </button>
           {aniData.map((anime) => (
             <div className=" pt-3 col-span-1" key={anime.mal_id}>
               <div className=" relative overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
