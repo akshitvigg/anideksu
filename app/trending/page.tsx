@@ -29,8 +29,8 @@ export default function Trending() {
 
   return (
     <div>
-      {/* {!loading ? ( */}
-      {/* <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
+      {!loading ? (
+        <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
           {aniData.map((anime) => (
             <div className=" pt-3 col-span-1" key={anime.mal_id}>
               <div className=" relative overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
@@ -68,15 +68,15 @@ export default function Trending() {
             </div>
           ))}
         </div>
-      ) : ( */}
-      <div className=" flex justify-center ">
-        {chance > 0.5 ? (
-          <Image className=" mt-64" src={naruto} width={200} alt="loading" />
-        ) : (
-          <Image className=" mt-80" src={pika} width={100} alt="loading" />
-        )}
-      </div>
-      {/* )} */}
+      ) : (
+        <div className=" flex justify-center ">
+          {chance > 0.5 ? (
+            <Image className=" mt-64" src={naruto} width={200} alt="loading" />
+          ) : (
+            <Image className=" mt-80" src={pika} width={100} alt="loading" />
+          )}
+        </div>
+      )}
     </div>
   );
 }
