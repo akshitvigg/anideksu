@@ -4,6 +4,7 @@ import axios from "axios";
 import { Star, Video, Search } from "lucide-react";
 import { useRef, useState } from "react";
 import { Cards } from "./components/cards";
+import Link from "next/link";
 
 export default function Home() {
   const [name, setName] = useState<string>("");
@@ -23,7 +24,9 @@ export default function Home() {
         <p className=" font-bold text-4xl">Anitaro</p>
 
         <p> home </p>
-        <button>trending</button>
+        <Link href={"/trending"}>
+          <button>trending</button>
+        </Link>
         <button>popular</button>
         <div className=" flex items-center">
           <input
