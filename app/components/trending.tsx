@@ -7,7 +7,7 @@ import pika from "../assets/pikachu-running.gif";
 import naruto from "../assets/2r6C.gif";
 import Image from "next/image";
 
-export default function Trending() {
+export function Trending() {
   const [aniData, setAnidata] = useState<any[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [chance, setChance] = useState<number>(0.5);
@@ -99,9 +99,9 @@ export default function Trending() {
       ) : (
         <div className="flex justify-center">
           {chance > 0.5 ? (
-            <Image className="mt-64" src={naruto} width={200} alt="loading" />
+            <Image className="mt-32" src={naruto} width={200} alt="loading" />
           ) : (
-            <Image className="mt-80" src={pika} width={100} alt="loading" />
+            <Image className="mt-40" src={pika} width={100} alt="loading" />
           )}
         </div>
       )}

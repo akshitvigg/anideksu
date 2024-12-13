@@ -8,6 +8,7 @@ import Link from "next/link";
 import Image from "next/image";
 import pika from "./assets/pikachu-running.gif";
 import naruto from "./assets/2r6C.gif";
+import { Trending } from "./components/trending";
 
 export default function Home() {
   const [aniData, setAnidata] = useState<any[]>([]);
@@ -59,6 +60,7 @@ export default function Home() {
               </button>
             </div>
           </div>
+          <Trending />
           <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
             {aniData.map((anime) => (
               <div className=" pt-3 col-span-1" key={anime.mal_id}>
