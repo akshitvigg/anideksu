@@ -3,7 +3,6 @@
 import axios from "axios";
 import { Star, Video, Search } from "lucide-react";
 import { useRef, useState } from "react";
-import { Cards } from "./components/cards";
 import Link from "next/link";
 import Image from "next/image";
 import pika from "./assets/pikachu-running.gif";
@@ -60,11 +59,16 @@ export default function Home() {
               </button>
             </div>
           </div>
-          <Trending />
+          <div className="mt-32">
+            <p className=" text-3xl font-bold text-yellow-300 px-10">
+              Trending
+            </p>
+            <Trending />
+          </div>
           <div className=" ml-32 pt-10 gap-3 mr-24 grid grid-cols-5">
             {aniData.map((anime) => (
               <div className=" pt-3 col-span-1" key={anime.mal_id}>
-                <div className=" relative overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
+                <div className=" relative h-60 overflow-hidden object-center  hover:object-cover rounded-md border-2 border-yellow-300">
                   <img
                     className=" w-full h-full object-cover rounded-md transition-transform duration-500 transform hover:scale-110   "
                     src={anime.images.jpg.image_url}
