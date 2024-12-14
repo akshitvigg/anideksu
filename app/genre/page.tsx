@@ -38,7 +38,7 @@ export default function GenreAnime() {
 
   return (
     <div className=" flex pt-4 ">
-      <div className="  mr-4 grid gap-4 grid-cols-5">
+      <div className="pl-12 pr-4 grid grid-cols-5">
         {anidata.map((anime) => (
           <div className=" col-span-1" key={anime.mal_id}>
             <div className="relative w-40 h-52 overflow-hidden rounded-md border-2 border-yellow-300">
@@ -60,186 +60,196 @@ export default function GenreAnime() {
                 {anime.episodes}
               </p>
             </div>
-            <p className="font-bold -translate-y-4 w-44">{anime.title}</p>
+            <p className="hover:text-yellow-300 -translate-y-4 w-44">
+              {anime.title}
+            </p>
           </div>
         ))}
       </div>
 
-      <div className=" h-60 rounded-xl  text-sm w-72 bg-[#1c2631] ">
-        <p className=" pl-3 font-bold border-b text-xl">genre</p>
-        <div className=" flex">
-          <div className=" flex-col border-r  h-52 flex w-28">
-            <button
-              className=" pt-4"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(1);
-              }}
-            >
-              Action
-            </button>
+      <div>
+        <div className=" h-64 rounded-xl  text-sm w-[310px] bg-[#1c2631] ">
+          <p className=" px-5 py-2 text-yellow-300 font-bold border-b border-gray-600 text-xl">
+            Genres
+          </p>
+          <div className=" flex">
+            <div className=" flex-col border-r border-gray-600 h-52 flex w-28">
+              <button
+                className=" hover:text-yellow-300 pt-4"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(1);
+                }}
+              >
+                Action
+              </button>
 
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(2);
-              }}
-            >
-              Adventure
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(4);
-              }}
-            >
-              Comedy
-            </button>
-            <button
-              className=" pt-3 "
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(46);
-              }}
-            >
-              Award Winning
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(28);
-              }}
-            >
-              Boys Love
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(8);
-              }}
-            >
-              Drama
-            </button>
-          </div>
-          <div className=" w-24 border-r flex flex-col">
-            <button
-              className=" pt-4"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(10);
-              }}
-            >
-              Fantasy
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(26);
-              }}
-            >
-              Girls Love
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(47);
-              }}
-            >
-              Gourmet
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(7);
-              }}
-            >
-              Mystery
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(14);
-              }}
-            >
-              Horror
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(22);
-              }}
-            >
-              Romance
-            </button>
-          </div>
-          <div className=" w-24 flex flex-col">
-            <button
-              className=" pt-4"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(24);
-              }}
-            >
-              Sci-Fi
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(36);
-              }}
-            >
-              Slice of Life
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(30);
-              }}
-            >
-              Sports
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(37);
-              }}
-            >
-              Supernatural
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(41);
-              }}
-            >
-              Suspense
-            </button>
-            <button
-              className=" pt-3"
-              onClick={() => {
-                setCurrPage(1);
-                setcurrGenre(3);
-              }}
-            >
-              Racing
-            </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(2);
+                }}
+              >
+                Adventure
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(4);
+                }}
+              >
+                Comedy
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3 "
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(46);
+                }}
+              >
+                Award Winning
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(28);
+                }}
+              >
+                Boys Love
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(8);
+                }}
+              >
+                Drama
+              </button>
+            </div>
+            <div className=" w-24 border-r border-gray-600 flex flex-col">
+              <button
+                className=" hover:text-yellow-300 pt-4"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(10);
+                }}
+              >
+                Fantasy
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(26);
+                }}
+              >
+                Girls Love
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(47);
+                }}
+              >
+                Gourmet
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(7);
+                }}
+              >
+                Mystery
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(14);
+                }}
+              >
+                Horror
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(22);
+                }}
+              >
+                Romance
+              </button>
+            </div>
+            <div className=" w-24 flex flex-col">
+              <button
+                className=" hover:text-yellow-300 pt-4"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(24);
+                }}
+              >
+                Sci-Fi
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(36);
+                }}
+              >
+                Slice of Life
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(30);
+                }}
+              >
+                Sports
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(37);
+                }}
+              >
+                Supernatural
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(41);
+                }}
+              >
+                Suspense
+              </button>
+              <button
+                className=" hover:text-yellow-300 pt-3"
+                onClick={() => {
+                  setCurrPage(1);
+                  setcurrGenre(3);
+                }}
+              >
+                Racing
+              </button>
+            </div>
           </div>
         </div>
+        <div className=" mt-5 bg-[#1c2631]  rounded-xl h-full">
+          <p className=" text-2xl py-3 font-bold border-b border-gray-600 px-4">
+            Most Popular
+          </p>
+        </div>
       </div>
-
       {/* <button onClick={handlePrevPage} disabled={currPage === 1}>
           prev
         </button>
