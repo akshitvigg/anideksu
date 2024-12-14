@@ -65,10 +65,10 @@ export default function GenreAnime() {
         ))}
       </div>
 
-      <div className=" h-60  text-sm w-72 bg-[#1c2631] ">
+      <div className=" h-60 rounded-xl  text-sm w-72 bg-[#1c2631] ">
         <p className=" pl-3 font-bold border-b text-xl">genre</p>
         <div className=" flex">
-          <div className=" flex-col  bg-cyan-400 h-52 flex w-28">
+          <div className=" flex-col border-r  h-52 flex w-28">
             <button
               className=" pt-4"
               onClick={() => {
@@ -125,7 +125,7 @@ export default function GenreAnime() {
               Drama
             </button>
           </div>
-          <div className=" w-24 bg-orange-400 flex flex-col">
+          <div className=" w-24 border-r flex flex-col">
             <button
               className=" pt-4"
               onClick={() => {
@@ -181,7 +181,7 @@ export default function GenreAnime() {
               Romance
             </button>
           </div>
-          <div className=" w-24 bg-green-400 flex flex-col">
+          <div className=" w-24 flex flex-col">
             <button
               className=" pt-4"
               onClick={() => {
