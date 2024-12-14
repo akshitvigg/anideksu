@@ -6,7 +6,7 @@ export default function GenreAnime() {
   const [anidata, setAnidata] = useState<any[]>([]);
   const [currPage, setCurrPage] = useState<number>(1);
   const [hasNextPage, setHasNextPage] = useState<boolean>(false);
-  const [currGenre, setcurrGernre] = useState();
+  const [currGenre, setcurrGenre] = useState<number>(1);
 
   const getAnimeBygenre = async (genreId: number) => {
     try {
@@ -21,8 +21,8 @@ export default function GenreAnime() {
   };
 
   useEffect(() => {
-    getAnimeBygenre(1);
-  }, [currPage]);
+    getAnimeBygenre(currGenre);
+  }, [currPage, currGenre]);
 
   const handlePrevPage = () => {
     if (currPage > 1) {
@@ -42,7 +42,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(1);
+            setcurrGenre(1);
           }}
         >
           Action
@@ -50,7 +50,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(2);
+            setcurrGenre(2);
           }}
         >
           Adventure
@@ -58,7 +58,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(5);
+            setcurrGenre(5);
           }}
         >
           Avant Garde
@@ -66,7 +66,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(46);
+            setcurrGenre(46);
           }}
         >
           Award Winning
@@ -74,7 +74,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(28);
+            setcurrGenre(28);
           }}
         >
           Boys Love
@@ -82,7 +82,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(4);
+            setcurrGenre(4);
           }}
         >
           Comedy
@@ -90,7 +90,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(8);
+            setcurrGenre(8);
           }}
         >
           Drama
@@ -98,7 +98,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(10);
+            setcurrGenre(10);
           }}
         >
           Fantasy
@@ -106,7 +106,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(26);
+            setcurrGenre(26);
           }}
         >
           Girls Love
@@ -114,7 +114,7 @@ export default function GenreAnime() {
         <button
           onClick={() => {
             setCurrPage(1);
-            getAnimeBygenre(47);
+            setcurrGenre(47);
           }}
         >
           Gourmet
