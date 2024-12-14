@@ -7,6 +7,14 @@ export default function GenreAnime() {
   const [currPage, setCurrPage] = useState<number>(1);
   const [hasNextPage, setHasNextPage] = useState<boolean>(false);
   const [currGenre, setcurrGenre] = useState<number>(1);
+  const [popularanime, setPopularanime] = useState<any[]>([]);
+  const [genre, setgenre] = useState<any[]>([]);
+
+  interface Anime {
+    mal_id: number;
+    title: string;
+    genres: { mal_id: number; name: string }[];
+  }
 
   const getAnimeBygenre = async (genreId: number) => {
     try {
@@ -19,6 +27,23 @@ export default function GenreAnime() {
       console.log(e);
     }
   };
+
+  useEffect(() => {
+    const getPopular = async () => {
+      try {
+        const response = await axios.get<{ data: Anime[] }>(
+          `https://api.jikan.moe/v4/top/anime?filter=bypopularity&page=1&limit=10`
+        );
+        setPopularanime(response.data.data);
+        const allGenres = response.data.data.map((anime) => anime.genres);
+        setgenre(allGenres);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    getPopular();
+  }, []);
+  console.log(genre + "sas");
 
   useEffect(() => {
     getAnimeBygenre(currGenre);
@@ -244,10 +269,38 @@ export default function GenreAnime() {
             </div>
           </div>
         </div>
-        <div className=" mt-5 bg-[#1c2631]  rounded-xl h-full">
+        <div className=" mt-5 bg-[#1c2631]  rounded-xl h-[1140px] mb-5">
           <p className=" text-2xl py-3 font-bold border-b border-gray-600 px-4">
             Most Popular
           </p>
+          <div>
+            {popularanime.map((anime) => (
+              <div key={anime.mal_id}>
+                <div className=" mt-5 mb-5   border-b border-gray-600  flex">
+                  <img
+                    className=""
+                    src={anime.images.jpg.image_url}
+                    width={60}
+                    alt=""
+                  />
+                  <div>
+                    <p className=" pl-4 text-wrap">{anime.title}</p>
+                    <div className=" pl-4 pt-2 flex gap-1">
+                      {anime.genres.map((g: any) => (
+                        <p className="  text-xs flex-row" key={g.mal_id}>
+                          {g.name}
+                        </p>
+                      ))}
+                    </div>
+                    <div className=" pt-2 pl-4 items-center flex">
+                      <Star size={16} fill="yellow" color="yellow" />{" "}
+                      <p className="  pl-2">{anime.score}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {/* <button onClick={handlePrevPage} disabled={currPage === 1}>
