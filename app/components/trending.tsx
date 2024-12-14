@@ -18,7 +18,8 @@ export function Trending() {
     const getTrending = async () => {
       setLoading(true);
       const response = await axios.get(
-        `https://api.jikan.moe/v4/anime?trending`
+        `https://api.jikan.moe/v4/top/anime?filter=airing
+`
       );
       setAnidata(response.data.data);
       setLoading(false);

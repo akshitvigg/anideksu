@@ -37,100 +37,11 @@ export default function GenreAnime() {
   };
 
   return (
-    <div>
-      <div className=" space-x-5">
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(1);
-          }}
-        >
-          Action
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(2);
-          }}
-        >
-          Adventure
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(5);
-          }}
-        >
-          Avant Garde
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(46);
-          }}
-        >
-          Award Winning
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(28);
-          }}
-        >
-          Boys Love
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(4);
-          }}
-        >
-          Comedy
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(8);
-          }}
-        >
-          Drama
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(10);
-          }}
-        >
-          Fantasy
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(26);
-          }}
-        >
-          Girls Love
-        </button>
-        <button
-          onClick={() => {
-            setCurrPage(1);
-            setcurrGenre(47);
-          }}
-        >
-          Gourmet
-        </button>
-        <button onClick={handlePrevPage} disabled={currPage === 1}>
-          prev
-        </button>
-
-        <button onClick={handleNextPage} disabled={!hasNextPage}>
-          next
-        </button>
-      </div>
-      <div className=" grid grid-cols-5">
+    <div className=" flex pt-4 ">
+      <div className="  mr-4 grid gap-4 grid-cols-5">
         {anidata.map((anime) => (
-          <div className="pt-3 col-span-1" key={anime.mal_id}>
-            <div className="relative h-60 overflow-hidden rounded-md border-2 border-yellow-300">
+          <div className=" col-span-1" key={anime.mal_id}>
+            <div className="relative w-40 h-52 overflow-hidden rounded-md border-2 border-yellow-300">
               <img
                 className="w-full h-full object-cover rounded-md transition-transform duration-500 transform hover:scale-110"
                 src={anime.images.jpg.image_url}
@@ -148,18 +59,194 @@ export default function GenreAnime() {
                 <Video className="pr-1" color="black" size={18} />
                 {anime.episodes}
               </p>
-              <p className="ml-2 pl-1 pr-1 rounded-md bg-red-400 text-black backdrop-blur-lg font-bold text-sm items-center w-16 flex -translate-y-6">
-                {anime.airing ? (
-                  <span className="pl-2">airing</span>
-                ) : (
-                  <span className="w-16">finished</span>
-                )}
-              </p>
             </div>
-            <p className="font-bold -translate-y-4 w-52">{anime.title}</p>
+            <p className="font-bold -translate-y-4 w-44">{anime.title}</p>
           </div>
         ))}
       </div>
+
+      <div className=" h-60  text-sm w-72 bg-[#1c2631] ">
+        <p className=" pl-3 font-bold border-b text-xl">genre</p>
+        <div className=" flex">
+          <div className=" flex-col  bg-cyan-400 h-52 flex w-28">
+            <button
+              className=" pt-4"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(1);
+              }}
+            >
+              Action
+            </button>
+
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(2);
+              }}
+            >
+              Adventure
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(4);
+              }}
+            >
+              Comedy
+            </button>
+            <button
+              className=" pt-3 "
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(46);
+              }}
+            >
+              Award Winning
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(28);
+              }}
+            >
+              Boys Love
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(8);
+              }}
+            >
+              Drama
+            </button>
+          </div>
+          <div className=" w-24 bg-orange-400 flex flex-col">
+            <button
+              className=" pt-4"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(10);
+              }}
+            >
+              Fantasy
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(26);
+              }}
+            >
+              Girls Love
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(47);
+              }}
+            >
+              Gourmet
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(7);
+              }}
+            >
+              Mystery
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(14);
+              }}
+            >
+              Horror
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(22);
+              }}
+            >
+              Romance
+            </button>
+          </div>
+          <div className=" w-24 bg-green-400 flex flex-col">
+            <button
+              className=" pt-4"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(24);
+              }}
+            >
+              Sci-Fi
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(36);
+              }}
+            >
+              Slice of Life
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(30);
+              }}
+            >
+              Sports
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(37);
+              }}
+            >
+              Supernatural
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(41);
+              }}
+            >
+              Suspense
+            </button>
+            <button
+              className=" pt-3"
+              onClick={() => {
+                setCurrPage(1);
+                setcurrGenre(3);
+              }}
+            >
+              Racing
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* <button onClick={handlePrevPage} disabled={currPage === 1}>
+          prev
+        </button>
+
+        <button onClick={handleNextPage} disabled={!hasNextPage}>
+          next
+        </button> */}
     </div>
   );
 }
