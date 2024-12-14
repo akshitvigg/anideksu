@@ -38,7 +38,7 @@ export default function Home() {
       ) : (
         <div>
           <div className=" pl-14 pt-3   flex justify-between pr-14  items-center ">
-            <p className=" font-bold text-4xl">Anitaro</p>
+            <p className=" font-anifont text-yellow-300 text-[50px]">Anitaro</p>
 
             <p> home </p>
             <Link href={"/trending"}>
@@ -48,9 +48,9 @@ export default function Home() {
             <div className=" flex items-center">
               <input
                 ref={inputRef}
-                className=" rounded-3xl mr-2 text-black p-3 w-96 "
+                className=" pl-8 rounded-3xl mr-2 bg-[#1c2631] border border-yellow-300 text-black p-3 w-96 "
                 type="text"
-                placeholder="anime name"
+                placeholder="eg:naruto"
               />
               <button
                 onClick={getAnimedata}
